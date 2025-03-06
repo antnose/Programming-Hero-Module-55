@@ -1,15 +1,15 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const { MongoClient, ServerApiVersion } = require("mongodb");
 const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
 // MongoDb Code Start -->
 
-const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri =
-  "mongodb+srv://antnose28:<db_password>@cluster0.to58y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://antnose28:arHUuDyvnpafUqx3@cluster0.to58y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -31,7 +31,7 @@ async function run() {
     );
   } finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+    // await client.close();
   }
 }
 run().catch(console.dir);
