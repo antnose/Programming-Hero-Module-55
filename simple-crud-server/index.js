@@ -8,8 +8,9 @@ app.use(express.json());
 
 // MongoDb Code Start -->
 
-const uri =
-  "mongodb+srv://antnose28:arHUuDyvnpafUqx3@cluster0.to58y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb://localhost:27017";
+// const uri =
+//   "mongodb+srv://antnose28:arHUuDyvnpafUqx3@cluster0.to58y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -71,6 +72,7 @@ async function run() {
       const id = req.params.id;
       // console.log("Please delete from database", id);
       const query = { _id: new ObjectId(id) };
+
       const result = await userCollection.deleteOne(query);
       res.send(result);
     });
