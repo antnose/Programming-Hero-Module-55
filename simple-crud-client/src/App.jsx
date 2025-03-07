@@ -1,6 +1,6 @@
 import { use, useState } from "react";
 import "./App.css";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function App() {
   const handleAddUser = (e) => {
@@ -34,12 +34,29 @@ function App() {
     <>
       <h1>Simple CRUD</h1>
       <form onSubmit={handleAddUser}>
-        <input type="text" name="name" />
+        <input
+          type="text"
+          name="name"
+          className="bg-amber-50 text-black p-1 rounded mt-4"
+          placeholder="Name"
+        />
         <br />
-        <input type="email" name="email" id="" />
+        <input
+          type="email"
+          name="email"
+          id=""
+          className="bg-amber-50 text-black my-3 p-1 rounded"
+          placeholder="Email"
+        />
         <br />
-        <input type="submit" value="Add User" />
+        <button type="submit" value="Add User">
+          Add User
+        </button>
       </form>
+
+      <Link to="/users">
+        <button>user</button>
+      </Link>
       <Outlet />
     </>
   );
